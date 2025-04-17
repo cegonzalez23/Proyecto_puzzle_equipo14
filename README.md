@@ -5,7 +5,7 @@ Pasman, Micaela Sol.
 Egochine, Dana Belén.
 González, Celeste Milagros.
 
-**Objetivo:** 
+**Objetivo:**
 Crear un rompecabezas interactivo con una mecánica de juego optimizada, que brinde una experiencia fluida, sin interrupciones ni fallos. Diseñar gráficos y efectos visuales envolventes que mantengan la atención del jugador y fomenten su disfrute. Garantizar la compatibilidad con múltiples dispositivos, asegurando el acceso a una audiencia global.
 
 **Funcionalidades:**

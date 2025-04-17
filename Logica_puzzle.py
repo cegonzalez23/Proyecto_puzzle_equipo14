@@ -74,9 +74,9 @@ def mover(matriz, direccion):
         return True
     else:
         print("Movimiento fuera de los límites")
-        return False 
-    
-while True: 
+        return False
+
+while True:
     mostrar_matriz(configuracion_inicial)
     direccion = input("Mover (w=arriba, s=abajo, a=izquierda, d=derecha): ")
     mover(configuracion_inicial, direccion)
