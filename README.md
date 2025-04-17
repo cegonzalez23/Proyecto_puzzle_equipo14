@@ -20,7 +20,7 @@ Interacción del usuario: Se permitirá mover las piezas en las direcciones izqu
 **Plan de Entrega**
 
 **40% de avance**
-Implementación de la matriz que representa el rompecabezas.
+Implementación de la matriz que representa el rompecabezas..
 Desarrollo de las funciones que permiten al usuario mover piezas en las direcciones izquierda, derecha, arriba y abajo.
 Pruebas básicas para asegurar el correcto funcionamiento de la lógica de movimientos.
 
