@@ -73,6 +73,7 @@ def mover(matriz, direccion):
         print("Movimiento fuera de los límites")
         return False
 
+
 #MODIFICACION2
 def pedir_direccion():
     while True:
@@ -88,11 +89,6 @@ def rompecabezas_resuelto(matriz):
     plano = [pieza for fila in matriz for pieza in fila]
     return plano == orden_correcto
 
-#while True:
- #   mostrar_matriz(configuracion_inicial)
- #  direccion = input("Mover (w=arriba, s=abajo, a=izquierda, d=derecha): ")
- # mover(configuracion_inicial, direccion)
-
 
 
 #MODIFICACION3
@@ -103,9 +99,3 @@ while True:
         break
     direccion = pedir_direccion()
     mover(configuracion_inicial, direccion)
-
-#Agregar validaciones
-
-
-
-
