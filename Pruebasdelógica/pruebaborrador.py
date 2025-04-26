@@ -33,6 +33,7 @@ def matriz_aleatoria(cant_colum_filas):
 
 #mostramos el estado actual del rompecabezs matricialmente
 def mostrar_matriz(matriz):
+    """Muestra la matriz del rompecabezas en pantalla."""
     for fila in matriz:
         print('|'.join(fila)) #une los elementos de cada fila con | para uqe se vea bonito
     print() #salto de linea
@@ -46,18 +47,81 @@ def encontrar_espacio(matriz):
     return None
 
 def mover(matriz, direccion):
-    tamaño = len(matriz)
-    fila, columna = encontrar_espacio(matriz)
-    nueva_fila, nueva_columna = fila, columna
+    """Mueve el espacio vacío ('-') en la dirección dada si es válido."""
+    movimientos = {
+        'w': (-1, 0),  # subir
+        's': (1, 0),   # bajar
+        'a': (0, -1),  # izquierda
+        'd': (0, 1)    # derecha
+    }
 
-    if direccion == 'w': #arriba
-        nueva_fila -= 1
-    elif direccion == 's': #abajo
-        nueva_fila += 1
-    elif direccion == 'a': #izquierda
-        nueva_columna -=1
-    elif direccion == 'd': #derecha
-        nueva_columna += 1
-    else:
-        print("Dirección errónea. Debés usar comandos del teclado 'w','s','a','d'.")
+    calcular_nueva_posicion = lambda fila, columna, df, dc: (fila + df, columna + dc)
+
+    if direccion not in movimientos:
+        print("Dirección inválida. Usa 'w', 's', 'a' o 'd'.")
         return False
+
+    fila, columna = encontrar_espacio(matriz)
+    delta_fila, delta_columna = movimientos[direccion]
+
+    nueva_fila, nueva_columna = calcular_nueva_posicion(fila, columna, delta_fila, delta_columna)
+
+    tamaño = len(matriz)
+    if 0 <= nueva_fila < tamaño and 0 <= nueva_columna < tamaño:
+        matriz[fila][columna], matriz[nueva_fila][nueva_columna] = matriz[nueva_fila][nueva_columna], matriz[fila][columna]
+        return True
+    else:
+        print("Movimiento fuera de los límites.")
+        return False
+
+
+# ---------- PRUEBAS BÁSICAS ----------
+
+def pruebas_movimientos():
+    print("Iniciando pruebas básicas...")
+    matriz_prueba = [
+        ['a', 'b', 'c'],
+        ['d', '-', 'f'],
+        ['g', 'h', 'i']
+    ]
+    mostrar_matriz(matriz_prueba)
+
+    print("Mover izquierda (a):")
+    mover(matriz_prueba, 'a')
+    mostrar_matriz(matriz_prueba)
+
+    print("Mover abajo (s):")
+    mover(matriz_prueba, 's')
+    mostrar_matriz(matriz_prueba)
+
+    print("Mover derecha (d):")
+    mover(matriz_prueba, 'd')
+    mostrar_matriz(matriz_prueba)
+
+    print("Mover arriba (w):")
+    mover(matriz_prueba, 'w')
+    mostrar_matriz(matriz_prueba)
+
+# ---------- JUEGO PRINCIPAL ----------
+
+def jugar_rompecabezas():
+    tamaño = obtener_tamaño()
+    matriz = matriz_aleatoria(tamaño)
+
+    print("\nConfiguración inicial del rompecabezas:")
+    mostrar_matriz(matriz)
+
+    while True:
+        direccion = input("Mover (w=arriba, s=abajo, a=izquierda, d=derecha, x=Salir del juego): ").strip().lower()
+        if direccion == 'x':
+            print("¡Gracias por jugar!")
+            break
+        mover(matriz, direccion)
+        mostrar_matriz(matriz)
+
+# ---------- EJECUCIÓN ----------
+
+if __name__ == "__main__":
+    pruebas_movimientos()  # Descomentar para correr las pruebas
+    jugar_rompecabezas()
+#docstring
