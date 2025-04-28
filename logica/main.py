@@ -1,7 +1,7 @@
 # main.py
-from logica.configuracion import obtener_tamaño
-from logica.matriz import matriz_aleatoria, mostrar_matriz
-from logica.movimientos import mover
+from configuracion import obtener_tamaño
+from matriz import matriz_aleatoria, mostrar_matriz
+from movimientos import mover
 
 def jugar_rompecabezas():
     tamaño = obtener_tamaño()
