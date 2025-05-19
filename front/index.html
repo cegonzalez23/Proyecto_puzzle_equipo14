@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rompecabezas de Letras</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <h1>Rompecabezas</h1>
+
+  <label for="size">Tamaño del rompecabezas (2 a 5):</label>
+  <input type="number" id="size" value="3" min="2" max="5" />
+  <button id="start">Iniciar</button>
+
+  <div class="carousel">
+    <button class="carousel-button prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="carousel-track">   
+      <div class="square" data-title="Nivel inicial" data-content="¡Poné a prueba tu ingenio! Comenzá por el nivel inicial del rompecabezas y descubrí qué tan lejos podés llegar." data-url="./nivelInicial.html" data-descarga="./descarga.html">
+        <img src="./img/imagen2.jpg" alt="" class="imagen1" />
+        <p class="NivelInicial">Nivel inicial</p>
+      </div>
+      <div class="square" data-title="Nivel medio" data-content="¡Bien hecho! Si el primer nivel fue fácil, el Nivel medio te va a poner a prueba. ¿Te animás a seguir?" data-url="./nivelMedio.html" data-descarga="./descarga.html">
+        <img src="./img/imagen3.jpg" alt="" class="imagen2" />
+        <p class="Nivel medio">Nivel medio</p>
+      </div>
+      <div class="square" data-title="Nivel difícil" data-content="¡Ya dominás los primeros niveles! El Nivel difícil te espera con un nuevo desafío. ¿Podrás resolverlo?" data-url="./nivelDificil.html" data-descarga="./descarga.html">
+        <img src="./img/imagen4.jpg" alt="" class="imagen3" />
+        <p class="Nivel difícil">Nivel difícil</p>
+      </div>
+      <div class="square" data-title="Nivel extremo" data-content="Llegaste al nivel extremo: donde solo los más pacientes y estratégicos logran ganar. ¿Aceptás el reto?" data-url="./nivelExtremo.html" data-descarga="./descarga.html">
+        <img src="./img/imagen5.jpg" alt="" class="imagen4" />
+        <p class="Nivel extremo">Nivel extremo</p>
+      </div>
+    </div>
+    <button class="carousel-button next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <div class="carousel-dots"></div>
+
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <h2 id="modal-title"></h2>
+    <img class="modal-content" id="img01" loading="lazy" />
+    <p id="modal-description"></p>
+    <a class="play" href="#" target="_blank"><i class="fa-solid fa-circle-play"></i></a>
+    <a class="descarga" href="#" target="_blank"><i class="fa-solid fa-image"></i></a>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
