@@ -13,7 +13,7 @@ def jugar_rompecabezas():
     while True:
         direccion = input("Mover (w=arriba, s=abajo, a=izquierda, d=derecha, x=Salir del juego): ").strip().lower()
         if direccion == 'x':
-            print("¡Gracias por jugar!")
+            print("¡Gracias por jugaaaaaar!")
             break
         mover(matriz, direccion)
         mostrar_matriz(matriz)
