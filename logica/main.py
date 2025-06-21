@@ -1,11 +1,13 @@
-# main.py
 from configuracion import obtener_tamaño
-from matriz import matriz_aleatoria, mostrar_matriz
+from importe_imagenes import partir_imagen
+from matriz import matriz_imagen_aleatoria, mostrar_matriz
 from movimientos import mover
 
-def jugar_rompecabezas():
+def jugar_rompecabezas_con_imagen():
     tamaño = obtener_tamaño()
-    matriz = matriz_aleatoria(tamaño)
+    ruta_imagen = input("Ingrese la ruta de la imagen (por ejemplo, 'mi_imagen.png'): ")
+    piezas = partir_imagen(ruta_imagen, tamaño, tamaño)
+    matriz = matriz_imagen_aleatoria(piezas)
 
     print("\nConfiguración inicial del rompecabezas:")
     mostrar_matriz(matriz)
@@ -19,4 +21,4 @@ def jugar_rompecabezas():
         mostrar_matriz(matriz)
 
 if __name__ == "__main__":
-    jugar_rompecabezas()
+    jugar_rompecabezas_con_imagen()
