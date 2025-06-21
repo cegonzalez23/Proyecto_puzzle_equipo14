@@ -1,0 +1,27 @@
+from PIL import Image
+import os
+
+def partir_imagen (ruta_imagen, filas, columnas,carpeta_salida="piezas"):
+    if not os.path.exists (carpeta_salida):
+        os.makedirs (carpeta_salida)
+    img=Image.open(ruta_imagen)
+    ancho, alto= img.size
+    ancho_pieza= ancho//columnas
+    alto_pieza= alto//filas
+
+    piezas=[] 
+
+    for f in range (filas):
+        fila_piezas=[]
+        for c in range (columnas):
+            arriba= f*alto_pieza
+            abajo= arriba + alto_pieza
+            izquierda= c*ancho_pieza
+            derecha= izquierda + ancho_pieza
+            paquete= (arriba, abajo, izquierda, derecha) #empaquetado
+            pieza=img.crop(paquete)
+            ruta_pieza= os.path.join (carpeta_salida, f"pieza_{f}_{c}.png")
+            pieza.save(ruta_pieza)
+        pieza.append(fila_piezas)
+    piezas[-1][-1]= "-"
+    return piezas
