@@ -1,0 +1,18 @@
+Seleccioná el tamaño del tablero:
+Podés elegir entre un rompecabezas de 3x3 hasta 5x5 piezas.
+
+Cómo mover las piezas:
+
+Presioná W para mover la pieza hacia arriba.
+
+Presioná S para mover la pieza hacia abajo.
+
+Presioná A para mover la pieza hacia la izquierda.
+
+Presioná D para mover la pieza hacia la derecha.
+
+Objetivo:
+Ordená todas las piezas para completar la imagen o patrón correcto.
+
+Finalización:
+Cuando completes el rompecabezas, aparecerá un mensaje de Felicitaciones por haber terminado con éxito.
