@@ -1,11 +1,10 @@
 from PIL import Image
 import os
 
-def partir_imagen(ruta_imagen, filas, columnas, carpeta_salida="piezas", tam_celda=150):
+def partir_imagen(ruta_imagen, filas, columnas, carpeta_salida="piezas"):
     if not os.path.exists(carpeta_salida):
         os.makedirs(carpeta_salida)
     img = Image.open(ruta_imagen)
-    img = img.resize((columnas * tam_celda, filas * tam_celda))
 
     ancho, alto = img.size
     ancho_pieza = ancho // columnas

@@ -11,13 +11,3 @@ def obtener_tamaño():
         print("La entrada no es válida. Se establecerá una configuración por defecto de 3x3")
         return 3
 
-
-#Verificar reglamento
-if os.path.exists("reglamento.txt"):
-    def mostrar_reglamento():
-        with open('reglamento.txt', 'r', encoding='utf-8') as archivo:
-            contenido = archivo.read()
-            print(contenido)
-    mostrar_reglamento()
-else:
-    print("No se encontró el archivo 'reglamento.txt'.")
