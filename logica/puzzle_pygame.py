@@ -89,7 +89,7 @@ def main():
          # Mensaje de pausaMore actions
         if paused:
             font = pygame.font.SysFont(None, 60)
-            texto = font.render("PAUSA", True, (255,255,255))
+            texto = font.render("TERMINADO", True, (255,255,255))
             screen.blit(texto, (ancho//2 - texto.get_width()//2, alto//2 - texto.get_height()//2))
 
         if not paused:
