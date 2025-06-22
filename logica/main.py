@@ -3,7 +3,9 @@ from importe_imagenes import partir_imagen
 from matriz import matriz_imagen_aleatoria, mostrar_matriz
 from movimientos import mover
 from puzzle_pygame import seleccionar_imagen, main
- 
+
+#Función main del puzzle desde la terminal (40%)
+"""
 def jugar_rompecabezas_con_imagen():
     tamaño = obtener_tamaño()
     ruta_imagen = seleccionar_imagen()
@@ -20,6 +22,7 @@ def jugar_rompecabezas_con_imagen():
             break
         mover(matriz, direccion)
         mostrar_matriz(matriz)
+"""
  
 if __name__ == "__main__":
     main()
