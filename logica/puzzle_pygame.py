@@ -49,7 +49,7 @@ def main():
     if not ruta_imagen:
         print("No se seleccionó ninguna imagen. Cerrando el juego.")
         return
-    piezas = partir_imagen(ruta_imagen, tamaño, tamaño, tam_celda=TAM_CELDA)
+    piezas = partir_imagen(ruta_imagen, tamaño, tamaño)
     matriz = matriz_imagen_aleatoria(piezas)
     imagenes = cargar_imagenes(matriz, TAM_CELDA)
 
@@ -86,6 +86,12 @@ def main():
 
         screen.fill((50, 50, 50))
 
+         # Mensaje de pausaMore actions
+        if paused:
+            font = pygame.font.SysFont(None, 60)
+            texto = font.render("PAUSA", True, (255,255,255))
+            screen.blit(texto, (ancho//2 - texto.get_width()//2, alto//2 - texto.get_height()//2))
+
         if not paused:
             for f, fila in enumerate(matriz):
                 for c, pieza in enumerate(fila):
@@ -93,17 +99,10 @@ def main():
                     x = c * TAM_CELDA
                     y = f * TAM_CELDA
                     if img:
-                        rect = img.get_rect(topleft=(x, y))
+                        rect = img.get_rect(topleft=(c * TAM_CELDA, f * TAM_CELDA))
                         screen.blit(img, rect)
                     else:
-                        rect = pygame.Rect(x, y, TAM_CELDA, TAM_CELDA)
-                        pygame.draw.rect(screen, (180, 180, 180), rect)
-                        pygame.draw.rect(screen, (100, 100, 100), rect, 3)
-
-        # Mensaje de pausa
-        if paused and not felicitado:
-            texto = font.render("PAUSA", True, (255, 255, 255))
-            screen.blit(texto, (ancho // 2 - texto.get_width() // 2, alto // 2 - texto.get_height() // 2))
+                         pygame.draw.rect(screen, (100, 100, 100), (c * TAM_CELDA, f * TAM_CELDA, TAM_CELDA, TAM_CELDA))
 
         # Mensaje de felicitaciones
         if esta_resuelto(matriz, piezas) and not felicitado:
